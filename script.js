@@ -1,7 +1,7 @@
 // creating an array and passing the number, questions, options, and answers
 let questions = [
     {
-    numb: 1,
+    num: 1,
     question: "What does HTML stand for?",
     answer: "Hyper Text Markup Language",
     options: [
@@ -12,7 +12,7 @@ let questions = [
     ]
   },
     {
-    numb: 2,
+    num: 2,
     question: "What does CSS stand for?",
     answer: "Cascading Style Sheet",
     options: [
@@ -23,7 +23,7 @@ let questions = [
     ]
   },
     {
-    numb: 3,
+    num: 3,
     question: "What does PHP stand for?",
     answer: "Hypertext Preprocessor",
     options: [
@@ -34,7 +34,7 @@ let questions = [
     ]
   },
     {
-    numb: 4,
+    num: 4,
     question: "What does SQL stand for?",
     answer: "Structured Query Language",
     options: [
@@ -45,7 +45,7 @@ let questions = [
     ]
   },
     {
-    numb: 5,
+    num: 5,
     question: "What does XML stand for?",
     answer: "eXtensible Markup Language",
     options: [
@@ -54,21 +54,7 @@ let questions = [
       "eXTra Multi-Program Language",
       "eXamine Multiple Language"
     ]
-  },
-  // you can uncomment the below codes and make duplicate as more as you want to add question
-  // but remember you need to give the numb value serialize like 1,2,3,5,6,7,8,9.....
-
-  //   {
-  //   numb: 6,
-  //   question: "Your Question is Here",
-  //   answer: "Correct answer of the question is here",
-  //   options: [
-  //     "Option 1",
-  //     "option 2",
-  //     "option 3",
-  //     "option 4"
-  //   ]
-  // },
+  }
 ];
 
 //selecting all required elements
@@ -80,32 +66,34 @@ const quiz_box = document.querySelector(".quiz_box");
 const result_box = document.querySelector(".result_box");
 const option_list = document.querySelector(".option_list");
 const time_line = document.querySelector("header .time_line");
-const timeText = document.querySelector(".timer .time_left_txt");
+const timeText = document.querySelector(".timer .time_text");
 const timeCount = document.querySelector(".timer .timer_sec");
 
 // if startQuiz button clicked
 start_btn.onclick = ()=>{
-    info_box.classList.add("activeInfo"); //show info box
+    document.querySelector(".landing").style.display= "none";
+    document.querySelector(".info_box").style.display= "flex";
 }
 
 // if exitQuiz button clicked
 exit_btn.onclick = ()=>{
-    info_box.classList.remove("activeInfo"); //hide info box
+    window.location.reload();
 }
 
 // if continueQuiz button clicked
 continue_btn.onclick = ()=>{
-    info_box.classList.remove("activeInfo"); //hide info box
-    quiz_box.classList.add("activeQuiz"); //show quiz box
+    document.querySelector(".info_box").style.display= "none";
+    document.querySelector(".quiz_box").style.display= "inline";
+
     showQuetions(0); //calling showQestions function
     queCounter(1); //passing 1 parameter to queCounter
-    startTimer(15); //calling startTimer function
+    startTimer(10); //calling startTimer function
     startTimerLine(0); //calling startTimerLine function
 }
 
-let timeValue =  15;
+let timeValue =  10;
 let que_count = 0;
-let que_numb = 1;
+let que_num = 1;
 let userScore = 0;
 let counter;
 let counterLine;
@@ -116,15 +104,16 @@ const quit_quiz = result_box.querySelector(".buttons .quit");
 
 // if restartQuiz button clicked
 restart_quiz.onclick = ()=>{
-    quiz_box.classList.add("activeQuiz"); //show quiz box
-    result_box.classList.remove("activeResult"); //hide result box
-    timeValue = 15; 
+    document.querySelector(".result_box").style.display= "none";
+    document.querySelector(".quiz_box").style.display= "inline";
+
+    timeValue = 10; 
     que_count = 0;
-    que_numb = 1;
+    que_num = 1;
     userScore = 0;
     widthValue = 0;
     showQuetions(que_count); //calling showQestions function
-    queCounter(que_numb); //passing que_numb value to queCounter
+    queCounter(que_num); //passing que_numb value to queCounter
     clearInterval(counter); //clear counter
     clearInterval(counterLine); //clear counterLine
     startTimer(timeValue); //calling startTimer function
@@ -132,7 +121,6 @@ restart_quiz.onclick = ()=>{
     timeText.textContent = "Time Left"; //change the text of timeText to Time Left
     next_btn.classList.remove("show"); //hide the next button
 }
-
 // if quitQuiz button clicked
 quit_quiz.onclick = ()=>{
     window.location.reload(); //reload the current window
@@ -145,9 +133,9 @@ const bottom_ques_counter = document.querySelector("footer .total_que");
 next_btn.onclick = ()=>{
     if(que_count < questions.length - 1){ //if question count is less than total question length
         que_count++; //increment the que_count value
-        que_numb++; //increment the que_numb value
+        que_num++; //increment the que_numb value
         showQuetions(que_count); //calling showQestions function
-        queCounter(que_numb); //passing que_numb value to queCounter
+        queCounter(que_num); //passing que_numb value to queCounter
         clearInterval(counter); //clear counter
         clearInterval(counterLine); //clear counterLine
         startTimer(timeValue); //calling startTimer function
@@ -166,7 +154,7 @@ function showQuetions(index){
     const que_text = document.querySelector(".que_text");
 
     //creating a new span and div tag for question and option and passing the value using array index
-    let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
+    let que_tag = '<span>'+ questions[index].num + ". " + questions[index].question +'</span>';
     let option_tag = '<div class="option"><span>'+ questions[index].options[0] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[2] +'</span></div>'
@@ -219,9 +207,9 @@ function optionSelected(answer){
 }
 
 function showResult(){
-    info_box.classList.remove("activeInfo"); //hide info box
-    quiz_box.classList.remove("activeQuiz"); //hide quiz box
-    result_box.classList.add("activeResult"); //show result box
+    document.querySelector(".quiz_box").style.display= "none";
+    document.querySelector(".result_box").style.display= "flex";
+
     const scoreText = result_box.querySelector(".score_text");
     if (userScore > 3){ // if user scored more than 3
         //creating a new span tag and passing the user score number and total question number
@@ -268,7 +256,7 @@ function startTimer(time){
 }
 
 function startTimerLine(time){
-    counterLine = setInterval(timer, 29);
+    counterLine = setInterval(timer, 20);
     function timer(){
         time += 1; //upgrading time value with 1
         time_line.style.width = time + "px"; //increasing width of time_line with px by time value
