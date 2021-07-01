@@ -217,7 +217,7 @@ function showResult(){
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
     }
     else if(userScore > 1){ // if user scored more than 1
-        let scoreTag = '<span>and nice , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        let scoreTag = '<span>and nice , You got ' + userScore +' out of '+ questions.length +' </span>';
         scoreText.innerHTML = scoreTag;
     }
     else{ // if user scored less than 1
@@ -259,7 +259,7 @@ function startTimerLine(time){
     counterLine = setInterval(timer, 20);
     function timer(){
         time += 1; //upgrading time value with 1
-        time_line.style.width = time + "px"; //increasing width of time_line with px by time value
+        time_line.style.width = 9*time/10 + "px"; //increasing width of time_line with px by time value
         if(time > 549){ //if time value is greater than 549
             clearInterval(counterLine); //clear counterLine
         }
@@ -268,6 +268,6 @@ function startTimerLine(time){
 
 function queCounter(index){
     //creating a new span tag and passing the question number and total question
-    let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
+    let totalQueCounTag = '<span>'+ index +' of '+ questions.length +' Questions</span>';
     bottom_ques_counter.innerHTML = totalQueCounTag;  //adding new span tag inside bottom_ques_counter
 }

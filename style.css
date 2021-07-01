@@ -17,6 +17,8 @@ body{
     align-items: center;
 }
 .landing{
+    height: 320px;
+    width: 530px;
     background: rgba(255,255,255,0.5);
     box-shadow: 0 15px 35px rgba(255,255,255,0.05);
     border-radius: 20px;
@@ -28,18 +30,22 @@ body{
     position: absolute;
 }
 .block{
+    position: absolute;
+    top: -15%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    transform: translateY(-80px);
 }
 .block1,
 .block2{
-    min-width: 200px;
+    width: 220px;
+    height: 200px;
+    position: relative;
     color: #df5a8d;
     margin: 10pX;
-    padding: 80px 20px 20px 20px;
+    font-size: 12px;
+    padding: 80px 10px 15px 10px;
     background: rgba(255,255,255,0.2);
     box-shadow: 0 15px 35px rgba(255,255,255,0.05);
     border-radius: 20px;
@@ -53,8 +59,8 @@ body{
     align-items: center;
 }
 .block img{
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     margin-bottom: 15px;
 }
 .start_btn button {
@@ -65,18 +71,22 @@ body{
     backdrop-filter: blur(10px);
     border: 1px solid #df5a8d;
     color: #df5a8d;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: 1px;
     outline: none;
     cursor: pointer;
-    transform: translateY(-30px);
+    position: absolute;
+    bottom: 15%;
+    left: 35%;
 }
 .start_btn button:hover{
     background: #df5a8d;
     color: #fff;
 }
 .info_box{
+    height: 350px;
+    width: 600px;
     background: rgba(255,255,255,0.5);
     box-shadow: 0 15px 35px rgba(255,255,255,0.05);
     border-radius: 20px;
@@ -84,15 +94,15 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
+    padding: 20px;
     transition: all 0.3s ease;
     position: absolute;
     display: none;
 }
 .info_box .info-title{
     width: 90%;
-    padding: 20px 30px;
-    font-size: 2em;
+    padding: 15px 30px;
+    font-size: 1.5em;
     color: #8a2435;
     font-weight: 600;
     background: rgba(255,255,255,0.2);
@@ -103,13 +113,13 @@ body{
     border-top: 1px solid rgba(255,255,255,0.5);
     border-left: 1px solid rgba(255,255,255,0.5);
     position: absolute;
-    transform: translateY(-180px);
+    top: -8%;
 }
 .info_box .info-list{
-    padding: 40px;
+    padding: 30px;
     padding-left: 120px;
     color: #8a2435;
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 500;
     line-height: 1.5;
     list-style-position: inside;
@@ -119,10 +129,14 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.644);
     border-top: 1px solid rgba(255,255,255,0.5);
     border-left: 1px solid rgba(255,255,255,0.5);
-    transform: translate(-100px, 20px); 
+    position: absolute;
+    left: -10%;
+    top: 15%;
 }
 .info_box .buttons{
-    position: relative;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -140,8 +154,6 @@ body{
     box-shadow: 0 5px 10px rgba(255,255,255,0.05);
     margin: 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    transform: translate(150px, 30px);
 }
 .info_box .buttons button.restart{
     color: #fff;
@@ -159,8 +171,8 @@ body{
     background: #8a2435;
 }
 .quiz_box{
-    height: 470px;
-    width: 600px;
+    height: 450px;
+    width: 550px;
     background: rgba(255,255,255,0.5);
     box-shadow: 0 15px 35px rgba(255,255,255,0.05);
     border-radius: 20px;
@@ -223,12 +235,14 @@ body{
 }
 .quiz_box header .time_line{
     height: 3px;
+    width: 300px;
     position: absolute;
     border-radius: 10px;
-    transform: translate(-30px, 35px);
+    transform: translate(-25px, 35px);
     background: #8a2435;
 }
 section{
+    width: 90%;
     padding: 20px 20px 10px 30px;
     box-shadow: 0 15px 30px rgba(255,255,255,0.1);
     border-radius: 20px;
@@ -238,10 +252,11 @@ section{
     border-top: 1px solid rgba(255,255,255,0.5);
     border-left: 1px solid rgba(255,255,255,0.5);
     background: rgba(255,255,255,0.5);
+    position: absolute;
     transform: translateY(40px);
 }
 section .que_text{
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 600;
 }
 section .option_list{
@@ -249,6 +264,7 @@ section .option_list{
     display: block;   
 }
 .option{
+    width: 480px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.5);
@@ -257,12 +273,12 @@ section .option_list{
     outline: none;
     padding: 10px 15px 10px 50px;
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: all 0.3s ease;
+    position: relative;
     transform: translateX(-50px);
 }
 section .option_list .option:last-child{
@@ -306,12 +322,12 @@ section .option_list .option .icon{
     background: white;
 }
 footer{
-    padding: 0px 30px;
+    padding: 0px 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: absolute;
-    transform: translateY(65px);
+    bottom:4%;
 }
 footer .total_que span{
     color: #8a2435;
@@ -328,7 +344,7 @@ footer .total_que span p:first-child{
     padding-left: 0px;
 }
 footer button{
-    padding: 15px 30px;
+    padding: 15px 25px;
     background: #8a2435;
     color: #fff;
     border-radius: 30px;
@@ -341,7 +357,7 @@ footer button{
     box-shadow: 0 5px 10px rgba(255,255,255,0.05);
     cursor: pointer;
     position: absolute;
-    transform: translateX(400px);
+    transform: translateX(350px);
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
@@ -363,6 +379,7 @@ footer button.show{
     align-items: center;
     justify-content: space-between;
     padding: 30px;
+    position: absolute;
     display: none;
 }
 .result_box .icon{
@@ -382,13 +399,10 @@ footer button.show{
     font-weight: 500;
     color: #df5a8d;
 }
-.result_box .score_text span p{
-    padding: 0 5px;
-    font-weight: 600;
-}
 .result_box .buttons{
     display: flex;
     margin: 20px 0;
+    position: relative;
 }
 .result_box .buttons button{
     margin: 0 10px;
